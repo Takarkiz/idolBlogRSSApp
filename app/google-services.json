@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1012299852050",
+    "firebase_url": "https://idolbloglistener.firebaseio.com",
+    "project_id": "idolbloglistener",
+    "storage_bucket": "idolbloglistener.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1012299852050:android:31cee031aa46701985abcb",
+        "android_client_info": {
+          "package_name": "com.takhaki.idolbloglistener"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1012299852050-d4sv35o8sum06e4ql7rjul889nltn69g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.takhaki.idolbloglistener",
+            "certificate_hash": "267245d8c46e280a5b6c21995c598d6a8afce053"
+          }
+        },
+        {
+          "client_id": "1012299852050-48ivlflf53v4ufe5a529gee2sbm21k4o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_AsdfrguZ5oE17E1dNKZYXDQbHQmn9Qc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1012299852050-48ivlflf53v4ufe5a529gee2sbm21k4o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
