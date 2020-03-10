@@ -1,4 +1,4 @@
-package com.takhaki.idolbloglistener
+package com.takhaki.idolbloglistener.screen.main
 
 import android.net.Uri
 import android.os.Bundle
@@ -12,8 +12,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
+import com.takhaki.idolbloglistener.ArticleDatabase
+import com.takhaki.idolbloglistener.R
 import com.takhaki.idolbloglistener.backgroundTasks.BlogHtmlParser
 import com.takhaki.idolbloglistener.databinding.FragmentBlogListBinding
+import com.takhaki.idolbloglistener.screen.main.view_model.BlogListViewModel
 import io.reactivex.observers.DisposableSingleObserver
 import kotlinx.android.synthetic.main.fragment_blog_list.*
 import kotlinx.coroutines.GlobalScope
@@ -23,7 +26,8 @@ import kotlinx.coroutines.launch
 class BlogListFragment : Fragment() {
 
     companion object {
-        fun newInstance() = BlogListFragment()
+        fun newInstance() =
+            BlogListFragment()
     }
 
     private lateinit var viewModel: BlogListViewModel
@@ -36,7 +40,8 @@ class BlogListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding: FragmentBlogListBinding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_blog_list, container, false
+            inflater,
+            R.layout.fragment_blog_list, container, false
         )
         viewModel = ViewModelProviders.of(this).get(BlogListViewModel::class.java)
         binding.lifecycleOwner = this
@@ -79,10 +84,14 @@ class BlogListFragment : Fragment() {
             override fun onClick(view: View, link: Uri) {
                 context?.let { context ->
                     GlobalScope.launch {
-                        ArticleDatabase.getInstance(context).articleDao()
+                        ArticleDatabase.getInstance(
+                            context
+                        ).articleDao()
                             .getArticles(link.toString())?.let { article ->
                                 article.isRead = true
-                                ArticleDatabase.getInstance(context).articleDao()
+                                ArticleDatabase.getInstance(
+                                    context
+                                ).articleDao()
                                     .update(article)
 
                             }

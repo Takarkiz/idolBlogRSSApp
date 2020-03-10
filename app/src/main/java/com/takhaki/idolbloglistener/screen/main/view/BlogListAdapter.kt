@@ -1,4 +1,4 @@
-package com.takhaki.idolbloglistener
+package com.takhaki.idolbloglistener.screen.main
 
 import android.content.Context
 import android.net.Uri
@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.takhaki.idolbloglistener.Model.Article
+import com.takhaki.idolbloglistener.R
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -28,7 +29,9 @@ class BlogListAdapter(val context: Context) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BlogListViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val view = layoutInflater.inflate(R.layout.view_article_item, parent, false)
-        return BlogListViewHolder(view)
+        return BlogListViewHolder(
+            view
+        )
     }
 
     override fun getItemCount(): Int {

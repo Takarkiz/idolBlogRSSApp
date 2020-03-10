@@ -1,4 +1,4 @@
-package com.takhaki.idolbloglistener
+package com.takhaki.idolbloglistener.screen.view_model
 
 import android.app.Application
 import android.content.Context
@@ -9,14 +9,17 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.work.*
+import com.takhaki.idolbloglistener.ArticleDatabase
 import com.takhaki.idolbloglistener.Model.Article
+import com.takhaki.idolbloglistener.R
 import com.takhaki.idolbloglistener.backgroundTasks.BlogXmlParseWorker
-import kotlinx.coroutines.flow.callbackFlow
 
 class BlogListViewModel(application: Application) : AndroidViewModel(application) {
 
     val articleList: LiveData<List<Article>> =
-        ArticleDatabase.getInstance(appContext).articleDao().getArticlesFromListKey(0)
+        ArticleDatabase.getInstance(
+            appContext
+        ).articleDao().getArticlesFromListKey(0)
 
     val loadingState: LiveData<Boolean>
         get() = _loadingState
@@ -49,7 +52,9 @@ class BlogListViewModel(application: Application) : AndroidViewModel(application
 
     fun goToBlog(context: Context, url: Uri) {
         val customTabIntent = CustomTabsIntent.Builder().apply {
-            setToolbarColor(ContextCompat.getColor(context, R.color.colorPrimary))
+            setToolbarColor(ContextCompat.getColor(context,
+                R.color.colorPrimary
+            ))
             addDefaultShareMenuItem()
             setShowTitle(true)
         }.build()

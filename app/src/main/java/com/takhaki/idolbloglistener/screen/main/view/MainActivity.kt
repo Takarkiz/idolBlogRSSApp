@@ -1,12 +1,8 @@
-package com.takhaki.idolbloglistener
+package com.takhaki.idolbloglistener.screen.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentManager
-import androidx.recyclerview.widget.DividerItemDecoration
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_blog_list.*
-import java.util.*
+import com.takhaki.idolbloglistener.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,7 +13,10 @@ class MainActivity : AppCompatActivity() {
         setTitle("ホーム")
 
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.container, BlogListFragment.newInstance())
+        transaction.add(
+            R.id.container,
+            BlogListFragment.newInstance()
+        )
         transaction.commit()
 
     }
