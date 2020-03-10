@@ -1,4 +1,4 @@
-package com.takhaki.idolbloglistener.screen.main
+package com.takhaki.idolbloglistener.screen.main.view
 
 import android.net.Uri
 import android.os.Bundle
@@ -61,7 +61,7 @@ class BlogListFragment : Fragment() {
         })
 
         // ローディングステートを監視する
-        viewModel.loadingState.observe(viewLifecycleOwner, Observer { isLoading ->
+        viewModel.isLoadingBlogList.observe(viewLifecycleOwner, Observer { isLoading ->
             swipeRefreshLayout.isRefreshing = isLoading
         })
 
@@ -80,7 +80,8 @@ class BlogListFragment : Fragment() {
         val itemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
         recyclerView.addItemDecoration(itemDecoration)
 
-        adapter.setOnItemClickListener(object : BlogListAdapter.OnItemClickListener {
+        adapter.setOnItemClickListener(object :
+            BlogListAdapter.OnItemClickListener {
             override fun onClick(view: View, link: Uri) {
                 context?.let { context ->
                     GlobalScope.launch {
@@ -88,7 +89,7 @@ class BlogListFragment : Fragment() {
                             context
                         ).articleDao()
                             .getArticles(link.toString())?.let { article ->
-                                article.isRead = true
+                                artigit cle.isRead = true
                                 ArticleDatabase.getInstance(
                                     context
                                 ).articleDao()
@@ -97,7 +98,7 @@ class BlogListFragment : Fragment() {
                             }
                     }.start()
                     adapter.notifyDataSetChanged()
-                    viewModel.goToBlog(context, link)
+                    viewModel.didTapBlogItem(link.toString())
                 }
             }
         })

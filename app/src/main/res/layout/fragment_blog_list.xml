@@ -7,13 +7,13 @@
     <data>
         <variable
             name="blogListViewModel"
-            type="com.takhaki.idolbloglistener.BlogListViewModel" />
+            type="com.takhaki.idolbloglistener.screen.view_model.BlogListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".BlogListFragment">
+        tools:context=".screen.main.view.BlogListFragment">
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipeRefreshLayout"

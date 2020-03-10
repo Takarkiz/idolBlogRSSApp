@@ -1,4 +1,4 @@
-package com.takhaki.idolbloglistener.screen
+package com.takhaki.idolbloglistener.screen.main
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LiveData
 import com.takhaki.idolbloglistener.Model.Article
+import com.takhaki.idolbloglistener.screen.BaseNavigator
 
 abstract class BlogListViewModelBase(
     application: Application
@@ -37,11 +38,15 @@ interface BlogListViewModelContract {
     /**
      * ブログアイテムタップ時
      */
-    fun didTapBlogItem()
+    fun didTapBlogItem(url: String)
 
 
     /**
      *FABタップ時
      */
     fun didTapPlusButton()
+}
+
+abstract class BlogListNavigator : BaseNavigator() {
+
 }

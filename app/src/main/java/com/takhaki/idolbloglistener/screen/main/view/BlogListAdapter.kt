@@ -1,4 +1,4 @@
-package com.takhaki.idolbloglistener.screen.main
+package com.takhaki.idolbloglistener.screen.main.view
 
 import android.content.Context
 import android.net.Uri
